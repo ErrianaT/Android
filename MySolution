@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class SearchSimulation {
-    private static String currentQuery = "";
-    private static String finalQuery = "";
+    private static String currentSearch = "";
+    private static String finalSearch = "";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -17,25 +17,25 @@ public class SearchSimulation {
             }
 
             if (input.isEmpty()) {
-                if (!finalQuery.isEmpty()) {
-                    // Simulate restoring the last query when search is cleared
-                    currentQuery = finalQuery;
-                    System.out.println("Restoring last query: " + currentQuery);
+                if (!finalSearch.isEmpty()) {
+                    // Simulating restoring the last search when the user closes a card's window
+                    currentSearch = finalSearch;
+                    System.out.println("Restoring last search: " + currentSearch);
                 } else {
                     System.out.println("Showing all results.");
                 }
             } else {
-                // Update current query
-                currentQuery = input;
-                System.out.println("Searching for: " + currentQuery);
-                // Save current query as final query when search changes
-                finalQuery = currentQuery;
+                // Updating the current search query
+                currentSearch = input;
+                System.out.println("Searching for: " + currentSearch);
+                // Saving current query as final when the search changes
+                finalSearch = currentSearch;
             }
 
-            // Simulate handling the reset action
+            // Simulating resetting the whole searching process
             if (input.equalsIgnoreCase("reset")) {
-                currentQuery = "";
-                finalQuery = "";
+                currentSearch = "";
+                finalSearch = "";
                 System.out.println("Search reset.");
             }
         }
