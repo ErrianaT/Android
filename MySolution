@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class SearchSimulation {
+    private static String currentQuery = "";
+    private static String finalQuery = "";
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Simulating the search menu
+        while (true) {
+            System.out.println("Enter search query (or 'exit' to quit): ");
+            String input = scanner.nextLine();
+
+            if (input.equalsIgnoreCase("exit")) {
+                break;
+            }
+
+            if (input.isEmpty()) {
+                if (!finalQuery.isEmpty()) {
+                    // Simulate restoring the last query when search is cleared
+                    currentQuery = finalQuery;
+                    System.out.println("Restoring last query: " + currentQuery);
+                } else {
+                    System.out.println("Showing all results.");
+                }
+            } else {
+                // Update current query
+                currentQuery = input;
+                System.out.println("Searching for: " + currentQuery);
+                // Save current query as final query when search changes
+                finalQuery = currentQuery;
+            }
+
+            // Simulate handling the reset action
+            if (input.equalsIgnoreCase("reset")) {
+                currentQuery = "";
+                finalQuery = "";
+                System.out.println("Search reset.");
+            }
+        }
+
+        scanner.close();
+    }
+}
